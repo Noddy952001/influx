@@ -24,9 +24,12 @@ router.post("/userCart", async (req, res) => {
   
       try {
 
+        const quenty = req.body.qty
+        const users = await UserCart.find().lean().exec(); 
 
-      const users = await UserCart.find().lean().exec(); 
+        console.log(quenty)
         
+
       return res.send(users);
     } catch (err) {
       return res.status(500).send(err.message);
